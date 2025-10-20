@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Citykart — Aditya Caterers Reviews</title>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      max-width: 700px;
+      width: 90%;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .logo-circle {
+      background: #00897b;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+    }
+
+    .logo-circle::before {
+      content: "🛒";
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #d32f2f;
+    }
+
+    h2 {
+      margin: 6px 0 18px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .review-box {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    button.copy {
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button.copy:hover { background: #0d47a1; }
+
+    a.google-btn {
+      display: inline-block;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 16px;
+      background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
+      background-size: 300% 300%;
+      animation: colorShift 6s infinite alternate;
+    }
+
+    @keyframes colorShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    p.note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <div class="logo-circle"></div>
+      <div class="title">Citykart</div>
+    </div>
+    <h2>To Give Review — Copy the text and tap on Google Reviews</h2>
+    <p class="review-box" id="reviewText"></p>
+    <div class="actions">
+      <button class="copy" id="copyBtn">Copy Review</button>
+      <a href="https://g.page/r/CTyAQa81kwj8EBE/review" target="_blank" rel="noopener" class="google-btn">Google Reviews</a>
+    </div>
+    <p class="note">Each visitor sees a unique review suggestion.</p>
+  </div>
+
+  <script>
+    const reviews = [
+      "The food by Aditya Caterers was simply amazing! Everyone at our function loved it. Highly recommended.",
+      "Excellent catering service — polite staff, on-time setup, and tasty dishes. Will book again.",
+      "We had a small get-together and Aditya Caterers handled it beautifully. Great taste and budget-friendly!",
+      "Food quality was top-notch and presentation was elegant. Thank you for making our event special.",
+      "The team was very professional and courteous. Loved their prompt service and delicious menu.",
+      "Tried Aditya Caterers for the first time, and we were impressed by the taste and hygiene.",
+      "Amazing spread! Every dish had authentic flavor and was freshly prepared.",
+      "Very good experience — the staff was humble, food was flavorful, and service was timely.",
+      "Aditya Caterers did a wonderful job for our housewarming. Guests are still praising the food!",
+      "Everything from starters to desserts was perfect. Great coordination and service.",
+      "I really appreciate their professionalism and positive attitude. Food was just wow!",
+      "Great team to work with. The catering setup was clean and food quality excellent.",
+      "Their paneer dishes are a must-try! Everyone enjoyed the menu thoroughly.",
+      "Aditya Caterers are very cooperative — customized the menu exactly as we wanted.",
+      "Very satisfied with their service. Food arrived hot and fresh, taste was awesome.",
+      "Affordable yet high-quality catering! Truly value for money.",
+      "We had a birthday party and the snacks were a hit. Great taste, quick service.",
+      "Aditya Caterers made our family event hassle-free. Professional and friendly staff.",
+      "The best part was the live counter — guests loved the freshness and variety.",
+      "Every dish had authentic flavor. Their team handled everything smoothly.",
+      "Highly reliable caterer. They delivered exactly what they promised.",
+      "Thank you for making our pooja lunch memorable. Simple yet delicious food.",
+      "Loved their presentation and hygiene. Definitely one of the best caterers around.",
+      "We booked them last minute and they still managed everything perfectly.",
+      "The quality of ingredients and cooking style really stands out.",
+      "Very responsive team. Communication was easy and service on time.",
+      "Food was tasty and portion size generous. Staff behaved very professionally.",
+      "Great experience overall — tasty food, smiling staff, and clean setup.",
+      "They understand customer needs and provide personalized service.",
+      "We’ve hired many caterers before, but Aditya Caterers truly stood out.",
+      "Our guests couldn’t stop talking about the biryani and sweets. Excellent job!",
+      "Staff was polite and well-trained. They ensured smooth serving throughout.",
+      "Perfect balance of taste and presentation. Great work by the entire team.",
+      "The team was punctual, setup was neat, and food exceeded expectations.",
+      "Highly recommended for any event — they make it special!",
+      "Very good experience. Food was delicious and within our budget.",
+      "Professional, punctual, and passionate about their work. Loved it.",
+      "The desserts were heavenly. Great catering service overall.",
+      "Had a corporate lunch catered by them — everyone appreciated the food.",
+      "Great taste and hygiene. The staff served with smiles throughout.",
+      "We were impressed with their management and friendly approach.",
+      "They maintained top quality even with a large crowd. Great coordination!",
+      "Loved the starters and mocktails. Food was fresh till the end.",
+      "One of the few caterers who truly care about customer satisfaction.",
+      "Their setup looked elegant and food was served piping hot.",
+      "Thanks Aditya Caterers for handling our event so smoothly. Highly reliable.",
+      "Every dish had perfect spice balance. You can trust them blindly.",
+      "I’ve recommended them to all my friends — very happy with their service.",
+      "From planning to execution, everything was handled professionally.",
+      "Food, service, and hospitality — all 10/10. Will definitely hire again!"
+    ];
+
+    const randomReview = reviews[Math.floor(Math.random() * reviews.length)];
+    document.getElementById("reviewText").innerText = randomReview;
+
+    document.getElementById("copyBtn").addEventListener("click", async function() {
+      try {
+        await navigator.clipboard.writeText(randomReview);
+        this.innerText = "Copied ✓";
+        setTimeout(() => this.innerText = "Copy Review", 2000);
+      } catch (err) {
+        alert("Copy failed — please copy manually.");
+      }
+    });
+  </script>
+</body>
+</html>
