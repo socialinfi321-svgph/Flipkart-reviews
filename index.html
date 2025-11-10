@@ -1,64 +1,71 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>smart review — Aditya Caterers Reviews</title>
+
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #e3f2fd, #fff);
-      margin: 0;
-      padding: 0;
+      background-image: url('https://raw.githubusercontent.com/socialinfi321-svgph/Flipkart-reviews/main/1762773229056.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-    }
-
-    .title {
-      font-size: 42px;
-      font-weight: 700;
-      color: #d32f2f;
+      justify-content: flex-start;
       text-align: center;
-      margin-top: 30px;
-      margin-bottom: 10px;
+      padding-top: 197px;
     }
 
     .subtitle {
-      font-size: 18px;
-      text-align: center;
+      font-size: 14px;
       color: #333;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
 
     .review-box {
-      width: 80%;
-      max-width: 700px;
-      background: #f7f7f7;
-      border-radius: 30px;
-      padding: 24px;
-      font-size: 17px;
+      width: 90%;
+      max-width: 650px;
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 25px;
+      padding: 20px 24px 50px 24px;
+      font-size: 15px;
+      font-family: 'Saira', Arial, Helvetica, sans-serif;
+      font-weight: 800;
       color: #333;
-      line-height: 1.6;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      line-height: 1.5;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
       text-align: left;
       position: relative;
+      margin-bottom: 10px;
     }
 
     .copy-btn {
       position: absolute;
-      bottom: -16px;
-      left: 30px;
+      bottom: 8px;
+      left: 24px;
       background: #1976d2;
       color: white;
       border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
+      padding: 8px 16px;
+      border-radius: 6px;
       cursor: pointer;
       font-weight: 600;
+      font-size: 14px;
       transition: 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
     .copy-btn:hover {
@@ -67,15 +74,17 @@
 
     .google-btn {
       display: inline-block;
-      margin-top: 40px;
+      margin-top: 35px;
       border-radius: 8px;
       text-decoration: none;
       color: #fff;
       font-weight: 600;
-      padding: 12px 18px;
+      font-size: 15px;
+      padding: 11px 20px;
       background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
-      background-size: 300% 300%;
-      animation: colorShift 6s infinite alternate;
+      background-size: 500% 500%;
+      animation: colorShift 2s infinite alternate;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25), 0 0 8px rgba(66, 133, 244, 0.3);
     }
 
     @keyframes colorShift {
@@ -84,24 +93,35 @@
     }
 
     .star-section {
-      margin-top: 10px;
+      margin-top: 40px;
       text-align: center;
       color: #000;
     }
 
-    .star-section small {
+    .star-section .top-text {
       display: block;
       font-size: 10px;
       margin-bottom: 2px;
+      color: #000;
+      font-weight: 500;
     }
 
     .stars {
       font-size: 22px;
       letter-spacing: 3px;
+      margin: 0;
+    }
+
+    .star-section .bottom-text {
+      display: block;
+      font-size: 10px;
+      margin-top: 2px;
+      color: #000;
+      font-weight: 500;
     }
 
     .thanks {
-      margin-top: 40px;
+      margin-top: 30px;
       font-size: 22px;
       font-family: 'Brush Script MT', cursive;
       color: #111;
@@ -110,112 +130,109 @@
 
     .policy {
       font-size: 12px;
-      color: #777;
+      color: #3b2121;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 3px;
       line-height: 1.4;
+      max-width: 650px;
     }
   </style>
 </head>
 <body>
-  <div class="title">ADITYA CRATERS 2.0</div>
-  <div class="subtitle">To give review copy the text</div>
+  <div class="subtitle">To give review, copy the text below 👇</div>
 
   <div class="review-box" id="reviewBox">
-    <p id="reviewText"></p>
+    <p id="reviewText">Loading review...</p>
     <button class="copy-btn" id="copyBtn">Copy Text</button>
   </div>
 
-  <a href="https://g.page/r/CTyAQa81kwj8EBE/review" target="_blank" rel="noopener" class="google-btn">Google Reviews</a>
+  <a href="https://g.page/r/CTyAQa81kwj8EBE/review" class="google-btn">
+    Google Reviews
+  </a>
 
   <div class="star-section">
-    <small>like only give</small>
+    <span class="top-text">Only give</span>
     <div class="stars">⭐⭐⭐⭐⭐</div>
-    <small>May your day not be good but great!</small>
+    <span class="bottom-text">May your day not be good but great</span>
   </div>
 
-  <div class="thanks">Thanks for supporting us!</div>
+  <div class="thanks">Thanks for supporting</div>
 
   <div class="policy">
-    <p>All reviews are voluntary and for feedback purposes only.</p>
+    <p>All reviews are voluntary, and for feedback purposes only.</p>
     <p>By using this page, you agree that reviews reflect personal experience only.</p>
   </div>
+
   <script>
-    const reviews = [
-  
+    // ✅ Updated API URL
+    const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbyFMA1IPJXFLpn0zOY1D6Nna20py8Om2nfaVruC8IsXrWLuSiF9he7UNso7IawQvCR1Ag/exec';
 
-  "The team's timing was perfect; they set up and served exactly on schedule. Flawless execution and genuinely tasty food throughout the event.",
-  "I was so impressed by how organized the buffet was. The staff managed the guest flow without any queues, and the food was delicious.",
-  "Aditya Caterers handles all the logistics brilliantly. Their professional management allowed me to finally relax and enjoy my own party.",
-  "Everything was perfectly coordinated, from the kitchen prep to the table service. The staff are highly professional and the food was excellent.",
-  "I appreciated their detailed planning consultation and execution. Every item arrived and was served exactly as promised; a truly delicious meal.",
-  "Zero stress! They managed the entire event catering with absolute precision and grace. Exceptional service and very delicious food.",
-  "The entire service team worked like a well-oiled machine, polite and efficient. I couldn't fault their organization or the delicious meal.",
-  "They came, they conquered, and they left the place spotless. High standards of professionalism and a delightful, delicious menu.",
-  "The management provided clear communication throughout the whole process. Their staff are professional, and the food was universally loved.",
-  "Impressive attention to the smallest operational details. The service was smooth and the food quality was consistently delicious.",
+    const reviewText = document.getElementById('reviewText');
+    const copyBtn = document.getElementById('copyBtn');
 
-  // B. Focusing on Taste & Culinary Quality
-  "The food was seasoned perfectly and had that authentic, rich flavour. It was honestly the most delicious catering I’ve ever tasted.",
-  "Every dish felt premium, made with high-quality ingredients. Their chef truly knows how to make genuinely delicious food.",
-  "We were pleasantly surprised by the depth of flavour in the vegetarian options. A delightful and professional experience all around.",
-  "The desserts were light, fresh, and not overly sweet—a perfect finish. Great taste and a professional serving staff.",
-  "The spice levels were balanced exactly as we requested. Truly delicious food that catered perfectly to our regional palate.",
-  "Their signature biryani was the highlight; fragrant and incredibly delicious. The staff are professional and delivered hot food on time.",
-  "I loved that the food didn't taste like typical banquet fare; it was home-style delicious. Professional service from start to end.",
-  "The appetizers were crisp and hot, and every course that followed was delicious. They maintained the food temperature perfectly.",
-  "We enjoyed the fresh, vibrant taste of their salads and accompaniments. The entire menu was well-curated and very delicious.",
-  "The food was so satisfying and flavourful; they use great recipes. Their staff are professional and provide wonderful, genuine service.",
-
-  // C. Focusing on Staff Attitude & Service
-  "The serving staff were genuinely warm and showed great initiative. Highly professional team and deliciously satisfying food.",
-  "I noticed the staff were incredibly patient and helpful with the older guests. Truly professional service and great, delicious catering.",
-  "The servers were always attentive but never intrusive, just perfect. Such professional manners and a truly delicious meal.",
-  "Their team had a calming and positive presence throughout the event. Excellent professional service and fantastic, delicious food.",
-  "We appreciated how quickly the staff handled all the refills and requests. Prompt, professional, and the food was extremely delicious.",
-  "Every staff member we interacted with was courteous and respectful. High marks for professionalism and the genuinely delicious menu.",
-  "The chefs and service manager were personable and clearly passionate. Professional to a fault, and the food was outstandingly delicious.",
-  "They paid close attention to our guests' glass and plate clearing, very professional. Seamless service and delicious food.",
-  "The staff had a great understanding of the menu and service flow. A very professional and well-trained team serving delicious food.",
-  "Their polite demeanor and smiles made a huge difference to the ambiance. Truly professional service with delicious food to match.",
-
-  // D. Focusing on Event Impact & Value
-  "Aditya Caterers transformed our casual event into a memorable feast. Great value for money and genuinely delicious, professional service.",
-  "The catering was the biggest talking point of the whole event! Exceptional professionalism and incredibly delicious food.",
-  "They absolutely surpassed our expectations for both service and food quality. Best professional caterers we have ever hired.",
-  "We feel we received a premium experience at a very reasonable cost. Excellent management and genuinely delicious food.",
-  "The impact of their well-presented and delicious food was huge. Hiring them made the entire event a massive success.",
-  "They made us look like wonderful hosts, thanks to their superb service. Truly professional and the food was universally praised as delicious.",
-  "We highly value their commitment to quality and service delivery. The staff are professional, and the food was truly delicious.",
-  "Worth every penny! They delivered an amazing, delicious food experience with professional, reliable service.",
-  "The catering service contributed so much positive energy to our celebration. Professional team, fantastic management, and delicious food.",
-  "We wouldn't hesitate to book them again for any future family event. Genuinely professional and deliciously dependable catering.",
-
-  // E. Focusing on Specific Details & Uniqueness
-  "I really liked the unique crockery and setup they provided. It added a touch of elegance, and the food was delicious.",
-  "Their live pasta counter was a brilliant idea and incredibly popular. The staff are professional and the quality was top-notch.",
-  "The coffee and tea station they arranged was a sophisticated touch. Professional service and a surprisingly delicious selection of beverages.",
-  "The team was fantastic at handling the children's specific menu. Professional, patient, and the kids' food was also delicious.",
-  "I appreciated that they used eco-friendly serving materials. High professionalism and a wonderfully delicious approach to catering.",
-  "They expertly managed the outdoor event challenges like heat and wind. Truly professional and the food stayed perfectly delicious.",
-  "The welcome drink selection was varied and genuinely refreshing. Professional staff and a delicious start to the celebration.",
-  "Their team ensured the buffet was always well-stocked without fail. Great management and consistently delicious food throughout the night.",
-  "I was grateful for their help in selecting a perfect seasonal menu. The result was a professional, delicious, and highly satisfying meal.",
-  "The packing of the leftover food for us was thoughtful and well-done. Excellent professional service and truly delicious cuisine.",
-    ];
-
-    const randomReview = reviews[Math.floor(Math.random() * reviews.length)];
-    document.getElementById("reviewText").innerText = randomReview;
-
-    document.getElementById("copyBtn").addEventListener("click", async function() {
+    async function fetchReview() {
       try {
-        await navigator.clipboard.writeText(randomReview);
-        this.innerText = "Copied ✓";
-        setTimeout(() => this.innerText = "Copy Review", 2000);
+        const response = await fetch(SHEET_API_URL + '?action=get');
+        if (!response.ok) throw new Error('Failed to fetch review');
+
+        const textData = await response.text();
+        console.log('Raw response:', textData);
+
+        let data;
+        try {
+          data = JSON.parse(textData);
+        } catch {
+          reviewText.innerText = textData.trim() || "No review text found.";
+          setupCopyButton(textData.trim());
+          return;
+        }
+
+        if (data.error) {
+          reviewText.innerText = data.error;
+          copyBtn.style.display = "none";
+        } else if (data.review) {
+          reviewText.innerText = data.review;
+          setupCopyButton(data.review);
+        } else {
+          reviewText.innerText = "No reviews found.";
+          copyBtn.style.display = "none";
+        }
+
       } catch (err) {
-        alert("Copy failed — please copy manually.");
+        console.error('Error:', err);
+        reviewText.innerText = "Error fetching review. Please try again later.";
+        copyBtn.style.display = "none";
       }
-    });
+    }
+
+    function setupCopyButton(textToCopy) {
+      const newBtn = copyBtn.cloneNode(true);
+      copyBtn.parentNode.replaceChild(newBtn, copyBtn);
+
+      newBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          newBtn.innerText = "Copied ✓";
+          setTimeout(() => (newBtn.innerText = "Copy Text"), 2000);
+        } catch {
+          const textarea = document.createElement("textarea");
+          textarea.value = textToCopy;
+          textarea.style.position = "fixed";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textarea);
+          newBtn.innerText = "Copied ✓";
+          setTimeout(() => (newBtn.innerText = "Copy Text"), 2000);
+        }
+      });
+    }
+
+    fetchReview();
   </script>
 </body>
 </html>
+
+
+
